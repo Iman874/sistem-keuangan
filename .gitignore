@@ -61,3 +61,14 @@ Homestead.yaml
 Homestead.json
 auth.json
 docker-compose.override.yml
+
+/public/assets/vendor/
+/public/assets/fonts/
+/public/assets/css/*.map
+/public/assets/js/*.map
+/public/assets/**/*.scss
+/public/assets/**/*.eot
+/public/assets/**/*.woff
+/public/assets/**/*.woff2
+/public/assets/**/*.ttf
+/public/assets/**/*.svg
