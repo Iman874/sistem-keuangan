@@ -1,0 +1,1 @@
+@include('kasir.invoice.template',['invoice'=>$invoice])

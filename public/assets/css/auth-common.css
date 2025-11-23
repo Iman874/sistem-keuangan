@@ -1,0 +1,170 @@
+/* Common styles for auth pages - based on logo color theme */
+:root {
+    /* Main color palette based on the logo */
+    --primary: #a3c5db;         /* Light blue - primary color */
+    --primary-dark: #8ab1c9;    /* Darker blue - for hover states, etc */
+    --primary-light: #d1e1ec;   /* Very light blue - for backgrounds, etc */
+    --accent: #36b9cc;          /* Teal accent - for highlights */
+    --text-primary: #4e73df;    /* Blue text */
+    --text-dark: #2e59d9;       /* Darker text */
+    --text-muted: #858796;      /* Grey text */
+    --text-light: #f8f9fc;      /* Light text */
+    --bg-gradient-start: #a3c5db;
+    --bg-gradient-mid: #8ab1c9;
+    --bg-gradient-end: #6c9fb9;
+    --shadow-color: rgba(31, 38, 135, 0.37);
+    --border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Animated background */
+.animated-gradient {
+    background: linear-gradient(-45deg, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end), var(--primary-dark));
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Card styling */
+.auth-card {
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px 0 var(--shadow-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Form elements */
+.auth-form-container {
+    position: relative;
+    z-index: 2;
+    background: white;
+    border-radius: 0 8px 8px 0;
+}
+
+.auth-form {
+    padding: 2.5rem;
+}
+
+/* Input fields */
+.form-control {
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    height: auto;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(163, 197, 219, 0.25);
+    border-color: var(--primary);
+}
+
+/* Brand section */
+.brand-section {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px 0 0 8px;
+}
+
+.brand-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.logo-wrapper {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.logo-img {
+    max-width: 120px;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.logo-title {
+    color: white;
+    font-weight: 600;
+    font-size: 1.75rem;
+    margin-bottom: 0.25rem;
+    text-align: center;
+}
+
+.logo-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Button styling */
+.btn-auth {
+    background: linear-gradient(to right, var(--text-primary), var(--accent));
+    border: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    color: white;
+}
+
+.btn-auth:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(78, 115, 223, 0.4);
+}
+
+/* Form labels */
+.form-group label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+/* Icon input fields */
+.input-icon-container {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    color: #b3b3b3;
+}
+
+.icon-input {
+    padding-left: 35px;
+}
+
+/* Mobile logo */
+.mobile-logo {
+    max-width: 90px;
+    margin: 0 auto 1.5rem;
+    display: block;
+}
+
+/* Headings */
+.heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Alerts */
+.alert {
+    border-radius: 8px;
+    padding: 1rem;
+}

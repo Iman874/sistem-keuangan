@@ -1,0 +1,1 @@
+<?php // Legacy file replaced by Database\Seeders\AddCategoriesSeeder. Kept empty intentionally.
