@@ -1,0 +1,63 @@
+# =========================================
+# PHP / Composer
+# =========================================
+/vendor/
+/composer.lock
+/composer.phar
+
+# Cache & Logs
+/storage/*.key
+/storage/logs/*.log
+/storage/framework/cache/**
+/storage/framework/sessions/**
+/storage/framework/views/**
+
+# PHPUnit
+/.phpunit.cache
+/.phpunit.result.cache
+
+# =========================================
+# Laravel public generated assets
+# =========================================
+/public/storage
+/public/hot
+/public/build
+/public/mix-manifest.json
+
+# =========================================
+# Environment Files
+# =========================================
+.env
+.env.*
+!.env.example
+
+# =========================================
+# Node / Frontend
+# =========================================
+/node_modules
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# =========================================
+# IDE / Editor
+# =========================================
+/.idea
+/.vscode
+/.fleet
+*.swp
+*.swo
+
+# =========================================
+# OS / Misc
+# =========================================
+.DS_Store
+Thumbs.db
+
+# =========================================
+# Homestead / Sail / Docker
+# =========================================
+Homestead.yaml
+Homestead.json
+auth.json
+docker-compose.override.yml
