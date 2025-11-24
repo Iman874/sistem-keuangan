@@ -11,12 +11,14 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\SimplePasswordResetController;
 use Illuminate\Support\Facades\Route;
 
+// Allow the login page and login POST to be reachable even when a previous
+// user is still authenticated (so the new login can replace the existing session).
+Route::get('login', [AuthenticatedSessionController::class, 'create'])
+    ->name('login');
+
+Route::post('login', [AuthenticatedSessionController::class, 'store']);
+
 Route::middleware('guest')->group(function () {
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])
-        ->name('login');
-
-    Route::post('login', [AuthenticatedSessionController::class, 'store']);
-
     /*
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
         ->name('password.request');

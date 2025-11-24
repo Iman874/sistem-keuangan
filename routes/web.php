@@ -30,9 +30,11 @@ use App\Http\Controllers\Auth\PasswordVerificationController;
 |
 */
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+
 Route::get('/', function () {
-    return view('auth.custom-login');
-})->name('login');
+    return redirect()->route('login');
+});
 
 Route::get('/dashboard', function () {
     // Redirect to role-specific dashboard

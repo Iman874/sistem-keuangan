@@ -15,8 +15,17 @@ class AuthenticatedSessionController extends Controller
     /**
      * Display the login view.
      */
-    public function create(): View
+    public function create(Request $request): View
     {
+        // If a user is already authenticated (for example via a remember cookie),
+        // clear that authentication so a new login can replace it. This ensures
+        // the session and role from a previous user don't persist in the browser.
+        if (Auth::check()) {
+            Auth::guard('web')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+        }
+
         return view('auth.custom-login');
     }
 
