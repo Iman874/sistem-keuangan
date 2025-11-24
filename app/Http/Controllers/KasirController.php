@@ -38,7 +38,8 @@ class KasirController extends Controller
             ->sum('amount');
         $todayQrisIncome = Income::whereDate('date', $today)
             ->when($sessionFilter !== 'all', fn($q) => $q->where('session', $sessionFilter))
-            ->where('payment_type','qris')->sum('amount');
+            ->whereRaw('LOWER(payment_type) = ?', ['qris'])
+            ->sum('amount');
         $todayCashIncome = Income::whereDate('date', $today)
             ->when($sessionFilter !== 'all', fn($q) => $q->where('session', $sessionFilter))
             ->where('payment_type','cash')->sum('amount');

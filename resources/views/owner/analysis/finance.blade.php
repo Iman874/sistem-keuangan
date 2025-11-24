@@ -501,11 +501,16 @@
                         <table class="table table-bordered table-hover mb-0" id="summaryIncomeTable" width="100%" cellspacing="0">
                             <thead class="thead-light"><tr><th>Kategori</th><th class="text-right">Total (Rp)</th></tr></thead>
                             <tbody>
-                                @forelse($monitorIncomeCategories as $c)
-                                    <tr><td>{{ $c['name'] }}</td><td class="text-right">{{ number_format($c['total'],0,',','.') }}</td></tr>
-                                @empty
+                                @php
+                                    $data = ($mode==='kategori') ? $summaryIncome : $monitorIncomeCategories;
+                                @endphp
+                                @if($data->count() > 0)
+                                    @foreach($data as $c)
+                                        <tr><td>{{ $c['name'] }}</td><td class="text-right">{{ number_format($c['total'],0,',','.') }}</td></tr>
+                                    @endforeach
+                                @else
                                     <tr><td colspan="2" class="text-center text-muted">Tidak ada data.</td></tr>
-                                @endforelse
+                                @endif
                             </tbody>
                         </table>
                     </div>
@@ -522,11 +527,16 @@
                         <table class="table table-bordered table-hover mb-0" id="summaryExpenseTable" width="100%" cellspacing="0">
                             <thead class="thead-light"><tr><th>Kategori</th><th class="text-right">Total (Rp)</th></tr></thead>
                             <tbody>
-                                @forelse($monitorExpenseCategories as $c)
-                                    <tr><td>{{ $c['name'] }}</td><td class="text-right">{{ number_format($c['total'],0,',','.') }}</td></tr>
-                                @empty
+                                @php
+                                    $data = ($mode==='kategori') ? $summaryExpense : $monitorExpenseCategories;
+                                @endphp
+                                @if($data->count() > 0)
+                                    @foreach($data as $c)
+                                        <tr><td>{{ $c['name'] }}</td><td class="text-right">{{ number_format($c['total'],0,',','.') }}</td></tr>
+                                    @endforeach
+                                @else
                                     <tr><td colspan="2" class="text-center text-muted">Tidak ada data.</td></tr>
-                                @endforelse
+                                @endif
                             </tbody>
                         </table>
                     </div>
@@ -602,6 +612,7 @@ function buildDonut(id, labels, data, colors){
 }
 
 @if($mode==='kategori')
+    
     const palette = ['#4e73df','#1cc88a','#36b9cc','#f6c23e','#e74a3b','#858796','#5a5c69'];
     buildDonut('incomeDonutChart', incomeLabels, incomeData, palette);
     buildDonut('expenseDonutChart', expenseLabels, expenseData, palette);

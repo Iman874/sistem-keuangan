@@ -177,6 +177,21 @@ class AnalysisController extends Controller
         $expenseChartLabels = $expenseTop->pluck('name');
         $expenseChartData = $expenseTop->pluck('value');
 
+        // Ringkasan untuk mode kategori
+        $summaryIncome = $incomeCombined->map(function($row){
+            return [
+                'name' => $row['name'],
+                'total' => $row['value'],
+            ];
+        });
+
+        $summaryExpense = $expenseCombined->map(function($row){
+            return [
+                'name' => $row['name'],
+                'total' => $row['value'],
+            ];
+        });
+
         $roles = User::select('role')->distinct()->pluck('role');
         // Ambil user per role
         $usersByRole = [];
@@ -393,6 +408,9 @@ class AnalysisController extends Controller
             'monitorTransactions' => $monitorTransactions,
             'monitorIncomeCategories' => $monitorIncomeCategories,
             'monitorExpenseCategories' => $monitorExpenseCategories,
+            'summaryIncome' => $summaryIncome,
+            'summaryExpense' => $summaryExpense,
+
         ], $filterSelections));
 
     }
